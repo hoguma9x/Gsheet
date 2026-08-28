@@ -22,6 +22,7 @@ namespace SheetData
         public const string GeneratorAssemblyName = "Assembly-CSharp";
         public const string FileName = "GsheetSetting";
         public const string BinaryFileName = "GsheetData";
+        public const string AnnotationText = "//";
         private readonly Regex SheetIdRegex = new Regex(@"/d/([a-zA-Z0-9-_]+)", RegexOptions.Compiled);
         
         [SerializeField] private string _codeGenerationPath = "Scripts/Generator";

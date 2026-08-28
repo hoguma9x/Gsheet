@@ -113,7 +113,7 @@ namespace SheetData.Editor.DownLoader
             _headers[0] = new HeaderType("string");
         }
         
-        bool IsAnnotation(string strs) => strs.Length >= 2 && strs.Substring(0, 2) == "//";
+        bool IsAnnotation(string strs) => strs.Length >= 2 && strs.Substring(0, 2) == SheetDataSettingScriptable.AnnotationText;
 
         int SearchIgnoreColumns(string firstRow, List<int> ignoreColumIdxs)
         {
