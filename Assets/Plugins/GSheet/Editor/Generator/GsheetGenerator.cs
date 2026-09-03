@@ -16,17 +16,21 @@ namespace SheetData.Editor.Generator
 {
     public static class GsheetGenerator
     {
+        private static string ProgressTitle = "Gsheet Generator";
         /// <summary> 데이터를 생성하고 Gsheet 클래스를 생성합니다 </summary>
         public static async Task Run(SheetDataSettingScriptable target)
         {
+            EditorUtility.DisplayProgressBar(ProgressTitle, "Start Generate", 0.1f);
             try
             {
-                var beforeGsheetData =
-                    GsheetDiffHelper.Capture(SheetDataSettingScriptable.Instance.FindGSheetInstance());
+                EditorUtility.DisplayProgressBar(ProgressTitle, "Capture BeforeData", 0.3f);
+                var beforeGsheetData = GsheetDiffHelper.Capture(SheetDataSettingScriptable.Instance.FindGSheetInstance());
+                EditorUtility.DisplayProgressBar(ProgressTitle, "Refresh GoogleSheet Names", 0.3f);
                 target.OnBeginGenerator();
                 bool successRefresh = await RefreshSheetNames(target);
                 if (!successRefresh)
                     throw new Exception("sheet does not exist. Please check the URL");
+                EditorUtility.DisplayProgressBar(ProgressTitle, "Refresh And Parsing GoogleSheet Datas", 0.5f);
                 List<SheetRawData> sheetDatas = new();
                 for (int i = 0; i < target.SheetInfos.Count; i++)
                 {
@@ -38,10 +42,9 @@ namespace SheetData.Editor.Generator
                             throw new Exception($"Header '{header.originalText}' is missing type");
                     }
                 }
-
+                EditorUtility.DisplayProgressBar(ProgressTitle, "Create LwBinary Data", 0.7f);
                 Dictionary<string, TypeModel> modelMap = new Dictionary<string, TypeModel>();
-                SheetBinaryWriter writer =
-                    SheetBinaryWriter.Create($"Resources/{SheetDataSettingScriptable.BinaryFileName}.bytes");
+                SheetBinaryWriter writer = SheetBinaryWriter.Create($"Resources/{SheetDataSettingScriptable.BinaryFileName}.bytes");
                 writer.Write(sheetDatas.Count);
                 foreach (var sheetData in sheetDatas)
                 {
@@ -54,12 +57,13 @@ namespace SheetData.Editor.Generator
                         CreateLocalizeEnums(target);
                     }
                 }
-
+                EditorUtility.DisplayProgressBar(ProgressTitle, "Save LwBinary Data", 0.7f);
                 int writerSize = writer.Length;
                 Debug.Log($"size {writerSize}");
                 writer.Save();
                 writer.Dispose();
-
+                
+                EditorUtility.DisplayProgressBar(ProgressTitle, "Generating Cshape Script", 0.9f);
                 foreach (var sheetData in sheetDatas)
                 {
                     var generatorCode = modelMap[sheetData.SheetName].Generator();
@@ -76,6 +80,7 @@ namespace SheetData.Editor.Generator
                 EditorPrefs.SetString(SheetDataSettingScriptableEditor.LOG_KEY,
                     $"BinarySize - {writerSize:N0} bytes, Updated - {DateTime.Now.ToString()}");
                 AssetDatabase.Refresh();
+                EditorUtility.DisplayProgressBar(ProgressTitle, "Call OnEndGenerator()", 1f);
                 target.OnEndGenerator();
 
                 var win = EditorWindow.GetWindow<DiffViewerWindow>();
@@ -85,6 +90,7 @@ namespace SheetData.Editor.Generator
             {
                 Debug.LogError(e);
             }
+            EditorUtility.ClearProgressBar();
         }
 
         /// <summary> 시트의 이름들을 갱신하고 Scriptable에 메타데이터로 등록합니다 </summary>
