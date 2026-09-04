@@ -1,5 +1,4 @@
 ﻿using System;
-using SheetData;
 using SheetData.Localize;
 using UnityEngine;
 
@@ -41,7 +40,5 @@ namespace Localize.Elements
             return new LocalizeString(key);
         }
         #endregion
-        
-
     }
 }

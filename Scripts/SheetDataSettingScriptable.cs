@@ -8,9 +8,6 @@ using SheetData.IO;
 using SheetData.Localize;
 using TextMateSharp.Grammars;
 using UnityEngine;
-#if UNITY_EDITOR
-
-#endif
 
 namespace SheetData
 {

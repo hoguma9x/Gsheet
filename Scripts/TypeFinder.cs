@@ -5,7 +5,7 @@ using Unity.Collections;
 using UnityEngine;
 using Assembly = System.Reflection.Assembly;
 
-namespace SheetData.Editor.Generator
+namespace SheetData
 {
     public static class TypeFinder
     {

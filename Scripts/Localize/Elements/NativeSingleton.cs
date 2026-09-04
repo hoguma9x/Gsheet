@@ -18,8 +18,7 @@ namespace Localize.Elements
                 return _instance;
             }
         }
-
-
+        
         protected virtual void OnCreateInstance()
         {
          

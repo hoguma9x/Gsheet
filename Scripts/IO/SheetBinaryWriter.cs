@@ -1,9 +1,10 @@
 ﻿using System;
 using System.IO;
-using System.Threading.Tasks;
 using LWSerializer;
-using UnityEditor;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace SheetData.IO
 {
@@ -24,6 +25,7 @@ namespace SheetData.IO
 
         public void Save()
         {
+#if UNITY_EDITOR
             var path = Path.Combine(Application.dataPath, _fileName);
             ReadOnlySpan<byte> binarySpan = ToPtr().AsSpan(Length);
             var dir = Path.GetDirectoryName(path);
@@ -41,6 +43,9 @@ namespace SheetData.IO
                 Debug.LogError(ex.ToString());
             }
             AssetDatabase.ImportAsset("Assets/"+_fileName, ImportAssetOptions.ForceSynchronousImport);
+#else
+            throw new NotImplementedException("Not implemented");            
+#endif
         }
 
     }

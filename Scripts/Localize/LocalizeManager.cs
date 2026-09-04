@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using Localize.Elements;
 using SheetData.SheetData;
 using TMPro;
-using UnityEngine;
 
 namespace SheetData.Localize
 {

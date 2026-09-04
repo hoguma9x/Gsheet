@@ -1,5 +1,4 @@
-﻿using SheetData.Localize;
-
+﻿
 namespace Localize.Elements
 {
     public enum RefreshMode
