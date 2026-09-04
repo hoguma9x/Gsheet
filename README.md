@@ -293,7 +293,3 @@ The project's default configuration points to the following sample Google Sheet.
 https://docs.google.com/spreadsheets/d/1188AKPfAl2taqn6G-JDENJF-WeO_YA_gE4SRYzMRZBc/edit
 ```
 
-URL for Unity Package Manager
-```text
-https://github.com/eowns9753/Gsheet.git?path=Assets/Plugins/GSheet
-```

@@ -294,7 +294,4 @@ public class MyTargetTypeFormatter : IParserFormatter
 https://docs.google.com/spreadsheets/d/1188AKPfAl2taqn6G-JDENJF-WeO_YA_gE4SRYzMRZBc/edit
 ```
 
-Unity Package Manager 使用時の URL
-```text
-https://github.com/eowns9753/Gsheet.git?path=Assets/Plugins/GSheet
-```
+
