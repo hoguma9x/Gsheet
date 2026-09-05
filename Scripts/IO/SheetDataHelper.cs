@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Gsheet.Internal.LWSerializer;
+using Gsheets.Internal.LWSerializer;
 
 namespace SheetData.IO
 {
@@ -11,11 +11,11 @@ namespace SheetData.IO
         public static object ReadSheet(SheetBinaryReader reader)
         {
             List<object> list = new();
-            Dictionary<string, Gsheet.Internal.LWSerializer.ILwSerializable> dic = new();
+            Dictionary<string, Gsheets.Internal.LWSerializer.ILwSerializable> dic = new();
             reader.Read(out SheetInfo info);
             for (int j = 0; j < info.DataCount; j++)
             {
-                var instance = (Gsheet.Internal.LWSerializer.ILwSerializable)Activator.CreateInstance(info.GetSheetType());
+                var instance = (Gsheets.Internal.LWSerializer.ILwSerializable)Activator.CreateInstance(info.GetSheetType());
                 if (info.IsDictionary)
                 {
                     reader.Read(out string key);

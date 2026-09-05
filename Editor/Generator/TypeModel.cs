@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Gsheet.Internal.LWSerializer;
-using Gsheet.Internal.Scriban;
+using Gsheets.Internal.LWSerializer;
+using Gsheets.Internal.Scriban;
 using SheetData.Editor.DownLoader;
 using SheetData.IO;
 using UnityEngine;
@@ -63,7 +63,7 @@ namespace SheetData.Editor.Generator
         public const string Template_Class = @"{{~ for us in usings ~}}
 using {{ us }};
 {{~ end ~}}
-using Gsheet.Internal.LWSerializer;
+using Gsheets.Internal.LWSerializer;
 
 namespace {{ namespace_name }}
 {
