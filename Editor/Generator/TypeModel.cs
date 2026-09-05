@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using LWSerializer;
-using Scriban;
+using Gsheet.Internal.LWSerializer;
+using Gsheet.Internal.Scriban;
 using SheetData.Editor.DownLoader;
 using SheetData.IO;
 using UnityEngine;

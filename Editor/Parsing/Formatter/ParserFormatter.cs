@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using SheetData.Editor.DownLoader;
-using SheetData.Editor.Generator;
-using SheetData.IO;
 using UnityEditor;
-using UnityEngine;
 
 namespace SheetData.Scripts.Parsing
 {

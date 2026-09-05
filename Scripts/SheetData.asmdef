@@ -3,14 +3,14 @@
     "rootNamespace": "SheetData",
     "references": [
         "Unity.Collections",
-        "Unity.TextMeshPro",
-        "LWSerializer"
+        "Unity.TextMeshPro"
     ],
     "includePlatforms": [
         "Android",
         "Editor",
         "iOS",
         "macOSStandalone",
+        "Switch2",
         "Switch",
         "PS4",
         "PS5",
@@ -19,8 +19,6 @@
         "WebGL",
         "WindowsStandalone32",
         "WindowsStandalone64",
-        "WindowsStandalone32Server",
-        "WindowsStandalone64Server",
         "GameCoreXboxOne",
         "XboxOne",
         "GameCoreScarlett"

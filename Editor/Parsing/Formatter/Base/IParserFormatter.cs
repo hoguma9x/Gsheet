@@ -1,5 +1,5 @@
 ﻿using System;
-using LWSerializer;
+using Gsheet.Internal.LWSerializer;
 using SheetData.IO;
 
 namespace SheetData.Scripts.Parsing

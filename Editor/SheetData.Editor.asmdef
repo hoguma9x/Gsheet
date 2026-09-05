@@ -5,8 +5,7 @@
         "SheetData",
         "Unity.Collections",
         "Unity.TextMeshPro",
-        "Unity.TextMeshPro.Editor",
-        "LWSerializer"
+        "Unity.TextMeshPro.Editor"
     ],
     "includePlatforms": [
         "Editor"
