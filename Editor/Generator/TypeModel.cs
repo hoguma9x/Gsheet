@@ -35,7 +35,6 @@ namespace SheetData.Editor.Generator
                 Members.Add(new  MemberModel(typeData));
             }
 
-            namespaceChain.Add(typeof(LwBinaryReader).Namespace);
             namespaceChain.Add(typeof(SerializeField).Namespace);
             namespaceChain.Remove(null);
             NamespaceName = nameSpace;
@@ -64,6 +63,7 @@ namespace SheetData.Editor.Generator
         public const string Template_Class = @"{{~ for us in usings ~}}
 using {{ us }};
 {{~ end ~}}
+using Gsheet.Internal.LWSerializer;
 
 namespace {{ namespace_name }}
 {
